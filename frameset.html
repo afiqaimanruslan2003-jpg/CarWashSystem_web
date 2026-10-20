@@ -1,0 +1,48 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exclusive Carwash | Admin Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            overflow: hidden;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0c0c0c;
+        }
+        
+        frameset, frame {
+            border: none;
+            overflow: hidden;
+        }
+        
+        frame {
+            display: block;
+        }
+    </style>
+</head>
+<frameset rows="75,*" frameborder="0" framespacing="0" border="0">
+    <frame name="UpperFrame" src="header.php" scrolling="no" noresize>
+    <frameset cols="220,*" frameborder="0" framespacing="0" border="0">
+        <frame name="LeftFrame" src="navbar2.php" scrolling="auto" noresize>
+        <frame name="RightFrame" src="welcome.html" scrolling="auto" noresize>
+    </frameset>
+</frameset>
+</html>

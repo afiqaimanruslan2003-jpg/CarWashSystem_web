@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exclusive Carwash | Premium Welcome</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #f5f5f5;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .welcome-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Header Section */
+        .welcome-header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .logo-icon {
+            color: #D4AF37;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            background: linear-gradient(to right, #D4AF37, #FFD700, #D4AF37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            animation: shimmer 3s infinite linear;
+            background-size: 200% auto;
+        }
+
+        .logo-subtitle {
+            font-size: 1.1rem;
+            color: #C0C0C0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .welcome-message {
+            font-size: 1.6rem;
+            color: #fff;
+            margin: 20px auto;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Price Catalog Section */
+        .catalog-section {
+            margin: 40px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            background: rgba(20, 20, 30, 0.8);
+        }
+
+        .catalog-header {
+            background: linear-gradient(135deg, #0A1A2D, #1A365D);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 3px solid #D4AF37;
+        }
+
+        .catalog-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+
+        .catalog-subtitle {
+            font-size: 1.1rem;
+            color: #C0C0C0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .price-card {
+            padding: 30px;
+            border-right: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .price-card:last-child {
+            border-right: none;
+        }
+
+        .car-type {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .car-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(46, 196, 182, 0.1));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #D4AF37;
+        }
+
+        .car-type-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f5f5f5;
+        }
+
+        .car-type-subtitle {
+            font-size: 0.9rem;
+            color: #C0C0C0;
+            margin-top: 3px;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            background: rgba(212, 175, 55, 0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .service-name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .service-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-title i {
+            color: #D4AF37;
+        }
+
+        .service-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #D4AF37;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            padding-left: 25px;
+            margin-top: 8px;
+        }
+
+        .service-features li {
+            font-size: 0.85rem;
+            color: #C0C0C0;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            color: #2EC4B6;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        /* Statistics Section */
+        .stats-section {
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 60px 0;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: #D4AF37;
+            margin-bottom: 15px;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f5f5f5;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #C0C0C0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Service Catalog */
+        .service-catalog-section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #D4AF37;
+            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #D4AF37, #2EC4B6);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .service-catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-catalog-card {
+            background: rgba(20, 20, 30, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-catalog-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .service-card-header {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(46, 196, 182, 0.05));
+            padding: 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .service-card-icon {
+            font-size: 3rem;
+            color: #D4AF37;
+            margin-bottom: 15px;
+        }
+
+        .service-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f5f5f5;
+            margin-bottom: 10px;
+        }
+
+        .service-card-description {
+            color: #C0C0C0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .service-card-content {
+            padding: 25px;
+        }
+
+        .price-breakdown {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .vehicle-type {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #C0C0C0;
+            font-size: 0.95rem;
+        }
+
+        .vehicle-type i {
+            color: #D4AF37;
+        }
+
+        .vehicle-price {
+            color: #D4AF37;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .service-card-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #C0C0C0;
+            font-size: 0.9rem;
+        }
+
+        .service-card-features li i {
+            color: #2EC4B6;
+            font-size: 0.8rem;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .quick-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            color: #D4AF37;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .quick-link:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.2));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .primary-link {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.2));
+            color: #000;
+            font-weight: 700;
+            padding: 16px 32px;
+        }
+
+        .primary-link:hover {
+            background: linear-gradient(135deg, #D4AF37, #b8941f);
+            color: #000;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .welcome-header > *,
+        .catalog-section,
+        .service-catalog-section,
+        .stats-section,
+        .quick-links {
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .welcome-header > * { animation-delay: 0.2s; }
+        .catalog-section { animation-delay: 0.4s; }
+        .service-catalog-section { animation-delay: 0.6s; }
+        .stats-section { animation-delay: 0.8s; }
+        .quick-links { animation-delay: 1s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 2.5rem;
+            }
+            
+            .welcome-message {
+                font-size: 1.3rem;
+            }
+            
+            .catalog-title {
+                font-size: 2rem;
+            }
+            
+            .price-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .price-card {
+                border-right: none;
+            }
+            
+            .service-catalog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .quick-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .quick-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <!-- Header -->
+        <div class="welcome-header">
+            <div class="logo-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="logo-text">EXCLUSIVE CARWASH</div>
+            <div class="logo-subtitle">PREMIUM DETALLING SERVICES</div>
+            <div class="welcome-message">
+                Welcome to Your Premium Car Wash Management System
+            </div>
+        </div>
+
+        <!-- Price Catalog -->
+        <div class="catalog-section">
+            <div class="catalog-header">
+                <div class="catalog-title">Premium Service Price Catalog</div>
+                <div class="catalog-subtitle">Transparent pricing for all vehicle types. Select your vehicle type to see the exact pricing.</div>
+            </div>
+            
+            <div class="price-grid">
+                <!-- Sedan/Hatchback -->
+                <div class="price-card">
+                    <div class="car-type">
+                        <div class="car-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div>
+                            <div class="car-type-name">Sedan / Hatchback</div>
+                            <div class="car-type-subtitle">Compact & Mid-size Cars</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="service-list">
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-sparkles"></i>
+                                    Signature Wash
+                                </div>
+                                <div class="service-price">RM 20</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Premium foam wash</li>
+                                <li>Hand wax application</li>
+                                <li>Tire & rim cleaning</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-gem"></i>
+                                    Executive Detailing
+                                </div>
+                                <div class="service-price">RM 70</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Complete interior cleaning</li>
+                                <li>Leather conditioning</li>
+                                <li>Paint polishing</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ceramic Coating
+                                </div>
+                                <div class="service-price">RM 120</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>9H ceramic coating</li>
+                                <li>2-year warranty</li>
+                                <li>Hydrophobic protection</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- MPV -->
+                <div class="price-card">
+                    <div class="car-type">
+                        <div class="car-icon">
+                            <i class="fas fa-van-shuttle"></i>
+                        </div>
+                        <div>
+                            <div class="car-type-name">MPV</div>
+                            <div class="car-type-subtitle">Multi-Purpose Vehicles</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="service-list">
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-sparkles"></i>
+                                    Signature Wash
+                                </div>
+                                <div class="service-price">RM 25</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Extended foam coverage</li>
+                                <li>Hand wax application</li>
+                                <li>Large surface cleaning</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-gem"></i>
+                                    Executive Detailing
+                                </div>
+                                <div class="service-price">RM 80</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Multi-row interior clean</li>
+                                <li>Extra leather treatment</li>
+                                <li>Enhanced paint care</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ceramic Coating
+                                </div>
+                                <div class="service-price">RM 130</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Extended surface coating</li>
+                                <li>2-year warranty</li>
+                                <li>UV protection</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- SUV/L.MPV -->
+                <div class="price-card">
+                    <div class="car-type">
+                        <div class="car-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div>
+                            <div class="car-type-name">SUV / L.MPV</div>
+                            <div class="car-type-subtitle">Large Vehicles</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="service-list">
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-sparkles"></i>
+                                    Signature Wash
+                                </div>
+                                <div class="service-price">RM 30</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Extra foam application</li>
+                                <li>High reach cleaning</li>
+                                <li>Alloy wheel treatment</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-gem"></i>
+                                    Executive Detailing
+                                </div>
+                                <div class="service-price">RM 85</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Spacious interior detail</li>
+                                <li>Premium leather care</li>
+                                <li>Paint restoration</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ceramic Coating
+                                </div>
+                                <div class="service-price">RM 140</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Full body protection</li>
+                                <li>2-year warranty</li>
+                                <li>Enhanced gloss finish</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 4x4 -->
+                <div class="price-card">
+                    <div class="car-type">
+                        <div class="car-icon">
+                            <i class="fas fa-truck-monster"></i>
+                        </div>
+                        <div>
+                            <div class="car-type-name">4x4</div>
+                            <div class="car-type-subtitle">Off-Road & Large 4WD</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="service-list">
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-sparkles"></i>
+                                    Signature Wash
+                                </div>
+                                <div class="service-price">RM 40</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Heavy-duty cleaning</li>
+                                <li>Undercarriage wash</li>
+                                <li>Mud & dirt removal</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-gem"></i>
+                                    Executive Detailing
+                                </div>
+                                <div class="service-price">RM 100</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Thorough interior deep clean</li>
+                                <li>Specialized off-road treatment</li>
+                                <li>Paint correction</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="service-item">
+                            <div class="service-name">
+                                <div class="service-title">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ceramic Coating
+                                </div>
+                                <div class="service-price">RM 170</div>
+                            </div>
+                            <ul class="service-features">
+                                <li>Maximum protection coating</li>
+                                <li>3-year warranty</li>
+                                <li>Extreme weather protection</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Details Catalog -->
+        <div class="service-catalog-section">
+            <div class="section-title">Premium Service Details</div>
+            <div class="service-catalog-grid">
+                <!-- Signature Wash -->
+                <div class="service-catalog-card">
+                    <div class="service-card-header">
+                        <div class="service-card-icon">
+                            <i class="fas fa-sparkles"></i>
+                        </div>
+                        <div class="service-card-title">Signature Wash</div>
+                        <div class="service-card-description">Our premium exterior cleaning service</div>
+                    </div>
+                    <div class="service-card-content">
+                        <div class="price-breakdown">
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-car"></i> Sedan/Hatchback
+                                </div>
+                                <div class="vehicle-price">RM 20</div>
+                            </div>
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-van-shuttle"></i> MPV
+                                </div>
+                                <div class="vehicle-price">RM 25</div>
+                            </div>
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-truck"></i> SUV/L.MPV
+                                </div>
+                                <div class="vehicle-price">RM 30</div>
+                            </div>
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-truck-monster"></i> 4x4
+                                </div>
+                                <div class="vehicle-price">RM 40</div>
+                            </div>
+                        </div>
+                        <ul class="service-card-features">
+                            <li><i class="fas fa-check"></i> Premium foam wash with pH-neutral shampoo</li>
+                            <li><i class="fas fa-check"></i> Hand wax application for enhanced shine</li>
+                            <li><i class="fas fa-check"></i> Tire & rim deep cleaning</li>
+                            <li><i class="fas fa-check"></i> Window cleaning with streak-free solution</li>
+                            <li><i class="fas fa-check"></i> Interior vacuum & dashboard wipe</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Executive Detailing -->
+                <div class="service-catalog-card">
+                    <div class="service-card-header">
+                        <div class="service-card-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="service-card-title">Executive Detailing</div>
+                        <div class="service-card-description">Complete interior & exterior detailing</div>
+                    </div>
+                    <div class="service-card-content">
+                        <div class="price-breakdown">
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-car"></i> Sedan/Hatchback
+                                </div>
+                                <div class="vehicle-price">RM 70</div>
+                            </div>
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-van-shuttle"></i> MPV
+                                </div>
+                                <div class="vehicle-price">RM 80</div>
+                            </div>
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-truck"></i> SUV/L.MPV
+                                </div>
+                                <div class="vehicle-price">RM 85</div>
+                            </div>
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-truck-monster"></i> 4x4
+                                </div>
+                                <div class="vehicle-price">RM 100</div>
+                            </div>
+                        </div>
+                        <ul class="service-card-features">
+                            <li><i class="fas fa-check"></i> Complete interior deep cleaning</li>
+                            <li><i class="fas fa-check"></i> Leather conditioning & protection</li>
+                            <li><i class="fas fa-check"></i> Carpet shampoo & extraction</li>
+                            <li><i class="fas fa-check"></i> Paint polishing & scratch removal</li>
+                            <li><i class="fas fa-check"></i> Engine bay cleaning & dressing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Ceramic Coating -->
+                <div class="service-catalog-card">
+                    <div class="service-card-header">
+                        <div class="service-card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-card-title">Ceramic Coating</div>
+                        <div class="service-card-description">Professional paint protection coating</div>
+                    </div>
+                    <div class="service-card-content">
+                        <div class="price-breakdown">
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-car"></i> Sedan/Hatchback
+                                </div>
+                                <div class="vehicle-price">RM 120</div>
+                            </div>
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-van-shuttle"></i> MPV
+                                </div>
+                                <div class="vehicle-price">RM 130</div>
+                            </div>
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-truck"></i> SUV/L.MPV
+                                </div>
+                                <div class="vehicle-price">RM 140</div>
+                            </div>
+                            <div class="price-row">
+                                <div class="vehicle-type">
+                                    <i class="fas fa-truck-monster"></i> 4x4
+                                </div>
+                                <div class="vehicle-price">RM 170</div>
+                            </div>
+                        </div>
+                        <ul class="service-card-features">
+                            <li><i class="fas fa-check"></i> 9H ceramic coating application</li>
+                            <li><i class="fas fa-check"></i> 2-year warranty (3-year for 4x4)</li>
+                            <li><i class="fas fa-check"></i> Hydrophobic water-repellent layer</li>
+                            <li><i class="fas fa-check"></i> UV protection & anti-fading</li>
+                            <li><i class="fas fa-check"></i> Chemical & scratch resistance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-value">1,500+</div>
+                    <div class="stat-label">Premium Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="stat-value">5,200+</div>
+                    <div class="stat-label">Vehicles Serviced</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            © 2026 Exclusive Carwash | Premium Detailing Services. All Rights Reserved.<br>
+            <span style="color: #D4AF37; font-size: 0.8rem;">System Version 2.0 • Last Updated: Today</span>
+        </div>
+    </div>
+
+    <script>
+        // Add click animation to cards
+        document.querySelectorAll('.price-card, .service-catalog-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = this.classList.contains('service-catalog-card') 
+                        ? 'translateY(-10px)' 
+                        : 'translateY(-5px)';
+                }, 150);
+            });
+        });
+
+        // Hover effect for service items
+        document.querySelectorAll('.service-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Update time in footer
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            const timeString = now.toLocaleDateString('en-US', options);
+            document.querySelector('.footer span').textContent = 
+                `System Version 2.0 • Last Updated: ${timeString}`;
+        }
+
+        // Update time every minute
+        setInterval(updateTime, 60000);
+        updateTime(); // Initial call
+
+        // Auto-animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.price-card, .service-catalog-card, .stat-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Highlight vehicle type based on selection
+        document.querySelectorAll('.car-type').forEach(type => {
+            type.addEventListener('click', function() {
+                const vehicleType = this.querySelector('.car-type-name').textContent;
+                alert(`You selected: ${vehicleType}. This selection will be used for booking calculations.`);
+            });
+        });
+    </script>
+</body>
+</html>
